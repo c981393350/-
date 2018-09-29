@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qianfeng.dao.ISignDao">
+  <resultMap id="signMap" type="com.qianfeng.entity.Sign">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="no" jdbcType="VARCHAR" property="no" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="signtime" jdbcType="DATE" property="signtime" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
+  </resultMap>
+  <sql id="userMap">
+    id, no, name, signtime, location
+  </sql>
+	
+	<select id="findByIndexAndSize" parameterType="map" resultType="Sign">
+		select * from t_sign limit #{index},#{size}
+	</select>
+  
+  <select id="count" resultType="int">
+		select count(1) from t_sign
+	</select>
+  
+  
+  
+  
+</mapper>
